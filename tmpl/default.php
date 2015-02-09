@@ -1,8 +1,12 @@
 <?php
 defined('_JEXEC') or die;
-JHtml::_('script', JUri::root() . 'media/mod_ceiling_calculator/js/script.js');
+
+$decs = $params->get('desc');
+$cash = $params->get('cash');
  ?>
-<p>Наведите на элемент &mdash; выскочит подсказка.</p>
+
+<div class="row ceiling_calculator <?php echo $moduleclass_sfx; ?>">
+<?php echo $desc; ?>
 <table>
     <tbody>
         <tr>
@@ -56,7 +60,17 @@ JHtml::_('script', JUri::root() . 'media/mod_ceiling_calculator/js/script.js');
         <tr>
             <td><strong>Цена натяжного потолка</strong>
             </td>
-            <td id="calcResult">0</td>
+            <td id="calcResult">0 <?php echo $cash; ?></td>
         </tr>
     </tbody>
 </table>
+
+</div>
+
+<?php
+// Get jQuery
+JHtml::_('jquery.framework');
+
+// And custom script. Editable.
+JHtml::script(JUri::base() . 'media/mod_ceiling_calculator/js/script.js');
+?>

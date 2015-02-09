@@ -1,4 +1,5 @@
 <?php
+defined('_JEXEC') or die;
 /**
  * Helper class for Hello World! module
  *
