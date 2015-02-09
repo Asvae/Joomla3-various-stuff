@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.3.1" client="site" method="upgrade">
+    <name>Ceiling Calculator!</name>
+    <author>Yauheni Prakopchyk</author>
+    <version>1.0.0</version>
+    <description>Calculator for ceilings. Try-the-might module.</description>
+    <files>
+        <filename>mod_ceiling_calculator.xml</filename>
+        <filename module="mod_ceiling_calculator">mod_ceiling_calculator.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <media folder="media" destination="mod_ceiling_calculator">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    <config>
+    </config>
+</extension>
