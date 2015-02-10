@@ -2,7 +2,7 @@
 <extension type="module" version="3.0" client="site" method="upgrade">
     <name>Asva phone</name>
     <author>Yauheni Prakopchyk</author>
-    <version>1.0.0</version>
+    <version>1.0.4</version>
     <description>Universal phone number. Intended for main page</description>
     <files>
         <filename>mod_asva_phone.xml</filename>
