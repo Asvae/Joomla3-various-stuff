@@ -1,4 +1,9 @@
 div.ceiling_calculator input
 {
-    width: 80%;
+    width: 77%;
+}
+
+div.ceiling_calculator select
+{
+    width: 82%;
 }

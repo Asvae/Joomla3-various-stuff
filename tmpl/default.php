@@ -4,17 +4,6 @@ defined('_JEXEC') or die;
 $desc = $params->get('desc');
 $cash = $params->get('cash');
  ?>
-<style type="text/css" media="screen">
-div.ceiling_calculator input
-{
-    width: 75%;
-}
-
-div.ceiling_calculator select
-{
-    width: 82%;
-}
-</style>
 
 <div class="ceiling_calculator <?php echo $moduleclass_sfx; ?>">
     <div class="desc row"><?php echo $desc; ?></div>
