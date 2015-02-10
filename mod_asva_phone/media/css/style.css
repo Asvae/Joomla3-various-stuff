@@ -1,0 +1,29 @@
+.asva_phone .container{
+    padding: 70px 0;
+    color: #333;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.asva_phone .contact-details {
+    text-align: center;
+}
+.asva_phone .phone-icon img {
+    border: 0 none;
+}
+.asva_phone .company-phone a {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-family: Consolas;
+    font-size: 62px;
+    line-height: 62px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    text-align: center;
+}
+.asva_phone h3.company-address {
+    margin-bottom: 16px;
+    text-transform: none;
+}

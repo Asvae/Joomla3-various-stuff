@@ -1,6 +1,6 @@
 <?php
 /**
- * Calculator for stretch ceilings
+ * Asva phone module
  *
  * @package Asva
  * @link    defrance.by
@@ -13,5 +13,5 @@ defined('_JEXEC') or die;
 require_once( dirname(__FILE__) . '/helper.php' );
 
 // JS
-require( JModuleHelper::getLayoutPath('mod_ceiling_calculator'));
+require( JModuleHelper::getLayoutPath('mod_asva_phone'));
 ?>

@@ -20,11 +20,18 @@
         <fields name="params">
 
             <fieldset name="basic">
-                <field name="icon" type="media" directory="stories" preview="tooltip"/>
+                <field name="icon" type="media" label="Иконка" description="Иконка сверху" preview="tooltip"/>
 
-                <field name="phone" type="text" class="input-mini" label="Телефон" default="+37529-999-99-99" description="Ваш телефон" />
+                <field name="bckg_img" type="media" label="Фоновый рисунок" preview="tooltip"/>
+
+                <field name="bckg_color" type="color" label="Цвет фона" description="Появляется если не ставить рисунок" preview="tooltip"/>
+
+                <field name="phone" type="tel" label="Телефон" default="+37529-999-99-99" description="Ваш телефон" />
 
                 <field name="desc" type="textarea" value="" class="input-xlarge" label="Описание" description="Надпись снизу" rows="6" />
+
+                <field name="desc_color" type="color" label="Цвет описания" preview="tooltip"/>
+
             </fieldset>
 
 

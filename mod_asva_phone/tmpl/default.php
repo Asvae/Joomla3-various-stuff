@@ -4,16 +4,27 @@ defined('_JEXEC') or die;
 $icon = $params->get('icon');
 $phone = $params->get('phone');
 $desc = $params->get('desc');
- ?>
+$bckg_img = $params->get('bckg_img');
+$bckg_color = $params->get('bckg_color');
+$desc_color = $params->get('desc_color');
 
-<div class="asva_phone <?php echo $moduleclass_sfx; ?>">
-    <div class = "row"><?php echo $icon; ?></div>
-    <div class = "row"><?php echo $phone; ?></div>
-    <div class="desc row"><?php echo $desc; ?></div>
+$html = <<<HTML
+<div class="asva_phone $moduleclass_sfx">
+    <div class="container" style = "color: $bckg_color; background-image: url('$bckg_img')">
+        <div class="contact-details">
+            <div class="phone-icon">
+                <img alt="" src="$icon">
+            </div>
+            <div class="company-phone">
+                <a  >$phone</a>
+            </div>
+            <h3 class="company-address" style = "color: $desc_color">$desc</h3>
+        </div>
+    </div>
 </div>
+HTML;
+echo $html;
 
-
-<?php
 // Get custom script. Editable.
 JHtml::script(JUri::base() . 'media/mod_asva_phone/js/script.js');
 ?>
