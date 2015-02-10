@@ -1,75 +1,250 @@
 <?php
 defined('_JEXEC') or die;
 
-$decs = $params->get('desc');
+$desc = $params->get('desc');
 $cash = $params->get('cash');
  ?>
+<style type="text/css" media="screen">
+div.ceiling_calculator input
+{
+    width: 80%;
+}
 
-<div class="row ceiling_calculator <?php echo $moduleclass_sfx; ?>">
-<?php echo $desc; ?>
-<table>
-    <tbody>
-        <tr>
-            <th>
-                <div class="control-label">Параметры</div>
-            </th>
-            <th>Количество</th>
-        </tr>
-        <tr>
-            <td title="Введите площадь вашего помещения">Площадь</td>
-            <td><input type="number" name="area" />&nbsp;(м<sup>2</sup>)</td>
-        </tr>
-        <tr>
-            <td title="Выберите нужный вариант фактуры">Фактура потолка</td>
-            <td><select name="type"><option value="1">Глянец,Мат-Россия</option><option value="2">Мат,Сатин-Англия/Бельгия</option><option value="3">Глянец-Англия/Мат,Сатин-Франция</option><option value="4">Глянец-Франция/Премиум-Англия</option><option value="5">Эксклюзивный/Тканевый CLIPSO,DESCOR</option><option value="6">Фотопечать/Двухуровневый</option></select>
-            </td>
-        </tr>
-        <tr>
-            <td title="Периметр помещения нужен для определения стоимости декоративной накладки-плинтуса, которая закрывает технологическую щель между стеной и потолком. Укажите целое число, без знаков препинания.">Периметр потолка п.м.</td>
-            <td><input type="number" name="per" />&nbsp;(м.)</td>
-        </tr>
-        <tr>
-            <td title="Вставка-плинтус &mdash; декоративный элемент, закрывающие технологическую щель по периметру потолка. Можно покрасить в цвет потолка, можно использовать свой декоративный элемент.">Вставка (плинтус)</td>
-            <td><input type="number" name="area" />&nbsp;(м<sup>2</sup>)</td>
-        </tr>
-        <tr>
-            <td title="Введите площадь вашего помещения">Площадь</td>
-            <td><select name="color"><option value="1">Нет</option><option value="2">Да</option></select>
-            </td>
-        </tr>
-        <tr>
-            <td title="По умолчанию в помещении 4 угла. Если у вас углов на потолке больше, введите нужное количество">Количество углов</td>
-            <td><input type="number" name="corner" />&nbsp;(шт.)</td>
-        </tr>
-        <tr>
-            <td title="Введите количество встраиваемых элементов - светильников. Стоимость работ по установке стоек указана без стоимости светильника. Светильники можно приобрести в нашем интернет-магазине">Кол-во светильников</td>
-            <td><input type="number" name="light" />&nbsp;(шт.)</td>
-        </tr>
-        <tr>
-            <td title="Введите количество люстр на потолке (Люстра крюковая)">Отверстие под люстру</td>
-            <td><input type="number" name="hole" />&nbsp;(шт.)</td>
-        </tr>
-        <tr>
-            <td title="Если в помещении есть трубы и их нужно обходить, введите количество труб, уходящих в потолок.">Окантовка трубы</td>
-            <td><input type="number" name="pipe" />&nbsp;(шт.)</td>
-        </tr>
-        <tr>
-            <td>Стойка и отверстие для элемента вентиляции</td>
-            <td><input type="number" name="air" />&nbsp;(шт.)</td>
-        </tr>
-        <tr>
-            <td><strong>Цена натяжного потолка</strong>
-            </td>
-            <td id="calcResult">0 <?php echo $cash; ?></td>
-        </tr>
-    </tbody>
-</table>
+</style>
 
+<div class="ceiling_calculator <?php echo $moduleclass_sfx; ?>">
+    <div class="desc row"><?php echo $desc; ?></div>
+    <div class = "row">
+        <div class = "span6">Hora</div>
+        <div class = "span6">Ra</div>
+
+        <div class = "span6">
+        <div class = "row">
+            <div class = "span3" style = "padding: 10px 0; font-weight: bold">
+                Материал
+            </div>
+            <div class = "span3" style = "padding: 10px 0; font-weight: bold">
+                Количество
+            </div>
+
+            <div title="Введите площадь вашего помещения">
+                <div class = "span3">
+                    Площадь
+                </div>
+                <div class = "span3">
+                    <input type="number" name="area" />&nbsp;м<sup>2</sup>
+                </div>
+            </div>
+
+            <div title="Выберите нужный вариант фактуры">
+                <div class = "span3">
+                    Фактура потолка
+                </div>
+                <div class = "span3">
+                    <select name="type"><option value="1">Глянец,Мат-Россия</option><option value="2">Мат,Сатин-Англия/Бельгия</option><option value="3">Глянец-Англия/Мат,Сатин-Франция</option><option value="4">Глянец-Франция/Премиум-Англия</option><option value="5">Эксклюзивный/Тканевый CLIPSO,DESCOR</option><option value="6">Фотопечать/Двухуровневый</option></select>
+                </div>
+            </div>
+
+            <div title="Периметр помещения нужен для определения стоимости декоративной накладки-плинтуса, которая закрывает технологическую щель между стеной и потолком. Укажите целое число, без знаков препинания.">
+                <div class = "span3">
+                    Периметр потолка п.м.
+                </div>
+                <div class = "span3">
+                    <input type="number" name="per" />&nbsp;м
+                </div>
+            </div>
+
+            <div title="Вставка-плинтус &mdash; декоративный элемент, закрывающие технологическую щель по периметру потолка. Можно покрасить в цвет потолка, можно использовать свой декоративный элемент.">
+                <div class = "span3">
+                    Вставка (плинтус)
+                </div>
+                <div class = "span3">
+                    <input type="number" name="area" />&nbsp;м<sup>2</sup>
+                </div>
+            </div>
+
+            <div title="Введите площадь вашего помещения">
+                <div class = "span3">
+                    Площадь
+                </div>
+                <div class = "span3">
+                    <select name="color"><option value="1">Нет</option><option value="2">Да</option></select>
+                </div>
+            </div>
+
+            <div data-rel="tooltip" data-original-title="По умолчанию в помещении 4 угла. Если у вас углов на потолке больше, введите нужное количество">
+                <div class = "span3">
+                    Количество углов
+                </div>
+                <div class = "span3">
+                    <input type="number" name="corner" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Введите количество встраиваемых элементов - светильников. Стоимость работ по установке стоек указана без стоимости светильника. Светильники можно приобрести в нашем интернет-магазине">
+                <div class = "span3">
+                    Кол-во светильников
+                </div>
+                <div class = "span3">
+                    <input type="number" name="light" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Введите количество люстр на потолке (Люстра крюковая)">
+                <div class = "span3">
+                    Отверстие под люстру
+                </div>
+                <div class = "span3">
+                    <input type="number" name="hole" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Если в помещении есть трубы и их нужно обходить, введите количество труб, уходящих в потолок.">
+                <div class = "span3">
+                    Окантовка трубы
+                </div>
+                <div class = "span3">
+                    <input type="number" name="pipe" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="">
+                <div class = "span3">
+                    Стойка и отверстие для элемента вентиляции
+                </div>
+                <div class = "span3">
+                    <input type="number" name="air" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="" style = "font-size: 20px">
+                <div class = "span3">
+                    <strong>Цена натяжного потолка</strong>
+                </div>
+                <div class = "span3">
+                    <span id="calcResult">0</span> <?php echo $cash; ?>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+
+
+        <div class = "span6">
+        <div class = "row">
+            <div class = "span3" style = "padding: 10px 0; font-weight: bold">
+                Материал
+            </div>
+            <div class = "span3" style = "padding: 10px 0; font-weight: bold">
+                Количество
+            </div>
+
+            <div title="Введите площадь вашего помещения">
+                <div class = "span3">
+                    Площадь
+                </div>
+                <div class = "span3">
+                    <input type="number" name="area" />&nbsp;м<sup>2</sup>
+                </div>
+            </div>
+
+            <div title="Выберите нужный вариант фактуры">
+                <div class = "span3">
+                    Фактура потолка
+                </div>
+                <div class = "span3">
+                    <select name="type"><option value="1">Глянец,Мат-Россия</option><option value="2">Мат,Сатин-Англия/Бельгия</option><option value="3">Глянец-Англия/Мат,Сатин-Франция</option><option value="4">Глянец-Франция/Премиум-Англия</option><option value="5">Эксклюзивный/Тканевый CLIPSO,DESCOR</option><option value="6">Фотопечать/Двухуровневый</option></select>
+                </div>
+            </div>
+
+            <div title="Периметр помещения нужен для определения стоимости декоративной накладки-плинтуса, которая закрывает технологическую щель между стеной и потолком. Укажите целое число, без знаков препинания.">
+                <div class = "span3">
+                    Периметр потолка п.м.
+                </div>
+                <div class = "span3">
+                    <input type="number" name="per" />&nbsp;м
+                </div>
+            </div>
+
+            <div title="Вставка-плинтус &mdash; декоративный элемент, закрывающие технологическую щель по периметру потолка. Можно покрасить в цвет потолка, можно использовать свой декоративный элемент.">
+                <div class = "span3">
+                    Вставка (плинтус)
+                </div>
+                <div class = "span3">
+                    <input type="number" name="area" />&nbsp;м<sup>2</sup>
+                </div>
+            </div>
+
+            <div title="Введите площадь вашего помещения">
+                <div class = "span3">
+                    Площадь
+                </div>
+                <div class = "span3">
+                    <select name="color"><option value="1">Нет</option><option value="2">Да</option></select>
+                </div>
+            </div>
+
+            <div data-rel="tooltip" data-original-title="По умолчанию в помещении 4 угла. Если у вас углов на потолке больше, введите нужное количество">
+                <div class = "span3">
+                    Количество углов
+                </div>
+                <div class = "span3">
+                    <input type="number" name="corner" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Введите количество встраиваемых элементов - светильников. Стоимость работ по установке стоек указана без стоимости светильника. Светильники можно приобрести в нашем интернет-магазине">
+                <div class = "span3">
+                    Кол-во светильников
+                </div>
+                <div class = "span3">
+                    <input type="number" name="light" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Введите количество люстр на потолке (Люстра крюковая)">
+                <div class = "span3">
+                    Отверстие под люстру
+                </div>
+                <div class = "span3">
+                    <input type="number" name="hole" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="Если в помещении есть трубы и их нужно обходить, введите количество труб, уходящих в потолок.">
+                <div class = "span3">
+                    Окантовка трубы
+                </div>
+                <div class = "span3">
+                    <input type="number" name="pipe" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="">
+                <div class = "span3">
+                    Стойка и отверстие для элемента вентиляции
+                </div>
+                <div class = "span3">
+                    <input type="number" name="air" />&nbsp;шт.
+                </div>
+            </div>
+
+            <div title="" style = "font-size: 20px">
+                <div class = "span3">
+                    <strong>Цена натяжного потолка</strong>
+                </div>
+                <div class = "span3">
+                    <span id="calcResult">0</span> <?php echo $cash; ?>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 
 <?php
 // Get jQuery
-JHtml::_('jquery.framework');
 
 // And custom script. Editable.
 JHtml::script(JUri::base() . 'media/mod_ceiling_calculator/js/script.js');

@@ -2,7 +2,7 @@
 <extension type="module" version="3.3.1" client="site" method="upgrade">
     <name>Ceiling Calculator!</name>
     <author>Yauheni Prakopchyk</author>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <description>Calculator for ceilings. Try-the-might module.</description>
     <files>
         <filename>mod_ceiling_calculator.xml</filename>

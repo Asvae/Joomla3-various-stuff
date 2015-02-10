@@ -76,7 +76,7 @@ jQuery(window).load(function()
             }
         });
 
-        $calc.keypress($calc.calculate());
+        $calc.on("keypress click", function(){$calc.calculate()});
         $calc.reset(); $calc.calculate();
     }
 });
