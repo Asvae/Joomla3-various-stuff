@@ -4,8 +4,8 @@
  */
 jQuery(window).load(function()
 {
-    var $calc = jQuery("div.ceiling_calculator table");
-    console.log ($calc);
+    var $calc = jQuery(".ceiling_calculator");
+    //console.log ($calc);
 
     if ($calc.length)
     {
@@ -57,8 +57,8 @@ jQuery(window).load(function()
 
                 // Суммирование и вывод
                 sum = SS + CC + L + H + P + A + dopsum;
-                console.log(sum);
-                $calc.find("td#calcResult").text(sum + " $");
+                //console.log(sum);
+                $calc.find("#calcResult").text(sum);
             },
 
             // Сбить таблицу на начальные значения
