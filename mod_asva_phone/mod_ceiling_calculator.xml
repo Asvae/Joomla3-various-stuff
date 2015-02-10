@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+    <name>Asva phone</name>
+    <author>Yauheni Prakopchyk</author>
+    <version>1.0.0</version>
+    <description>Universal phone number. Intended for main page</description>
+    <files>
+        <filename>mod_asva_phone.xml</filename>
+        <filename module="mod_asva_phone">mod_asva_phone.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <media folder="media" destination="mod_asva_phone">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+    <config>
+        <fields name="params">
+
+            <fieldset name="basic">
+                <field name="icon" type="media" directory="stories" preview="tooltip"/>
+
+                <field name="phone" type="text" class="input-mini" label="Телефон" default="+37529-999-99-99" description="Ваш телефон" />
+
+                <field name="desc" type="textarea" value="" class="input-xlarge" label="Описание" description="Надпись снизу" rows="6" />
+            </fieldset>
+
+
+        </fields>
+    </config>
+</extension>
